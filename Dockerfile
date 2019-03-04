@@ -16,7 +16,19 @@ RUN apt-get update && apt-get install -y \
     libglew-dev \
     npm
 
-RUN git clone https://github.com/riken-RCSS/HIVE
+RUN git clone -b KVSHiveModule https://github.com/riken-RCCS/HIVE
+RUN cd HIVE && git submodule update --init
+
+RUN cd HIVE && mkdir build
+
+RUN cd HIVE && ./scripts/build_loader_libs_linux-x64.sh
+
+RUN cd HIVE && ./scripts/cmake_linux-x64.sh
+
+RUN cd HIVE/build && make -j8
+
+
+
 
 
 
