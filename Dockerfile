@@ -14,18 +14,28 @@ RUN apt-get update && apt-get install -y \
     freeglut3 \
     freeglut3-dev \
     libglew-dev \
+    libglu1-mesa-dev \
+    mesa-common-dev \
     npm
 
-RUN git clone -b KVSHiveModule https://github.com/riken-RCCS/HIVE
-RUN cd HIVE && git submodule update --init
+RUN pwd
 
-RUN cd HIVE && mkdir build
+RUN cd var && git clone -b KVSHiveModule https://github.com/riken-RCCS/HIVE
 
-RUN cd HIVE && ./scripts/build_loader_libs_linux-x64.sh
+WORKDIR /var/HIVE/
+RUN git submodule update --init
+RUN mkdir build
+RUN ./scripts/build_nanomsg.sh
 
-RUN cd HIVE && ./scripts/cmake_linux-x64.sh
+WORKDIR /var/HIVE/build
+RUN cmake ..
+RUN make -j8
 
-RUN cd HIVE/build && make -j8
+WORKDIR /var/HIVE/build/bin/ModuleSystem
+EXPOSE 8080
+RUN sh install.sh
+RUN sh run_node.sh
+
 
 
 
