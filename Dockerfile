@@ -16,6 +16,9 @@ RUN apt-get update && apt-get install -y \
     libglew-dev \
     libglu1-mesa-dev \
     mesa-common-dev \
+    libxmu-dev \
+    libxi-dev \
+    nodejs \
     npm
 
 RUN pwd
@@ -26,6 +29,11 @@ WORKDIR /var/HIVE/
 RUN git submodule update --init
 RUN mkdir build
 RUN ./scripts/build_nanomsg.sh
+
+#special
+WORKDIR /var/HIVE/third_party
+RUN rm -rf KVS
+RUN git clone -b develop https://github.com/kioku-systemk/KVS.git
 
 WORKDIR /var/HIVE/build
 RUN cmake ..
