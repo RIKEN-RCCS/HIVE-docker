@@ -48,7 +48,7 @@ WORKDIR /var/HIVE/build/bin/ModuleSystem
 EXPOSE 8080
 RUN sh install.sh
 
-CMD ["node", "server.js"]
+CMD ["node", "server.js", "-p", "80"]
 
 
 
