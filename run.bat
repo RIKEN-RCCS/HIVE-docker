@@ -1,1 +1,1 @@
-docker run -p 8080:80 --rm -it hive-server
+docker run -p 8080:80 --rm -t hive-server
