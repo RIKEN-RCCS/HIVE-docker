@@ -47,9 +47,8 @@ RUN make -j8
 WORKDIR /var/HIVE/build/bin/ModuleSystem
 EXPOSE 8080
 RUN sh install.sh
-RUN sh run_node.sh
 
-
+CMD ["node", "server.js"]
 
 
 

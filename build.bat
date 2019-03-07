@@ -1,1 +1,1 @@
-docker build -t admin/hive-server .
+docker build -t hive-server .
