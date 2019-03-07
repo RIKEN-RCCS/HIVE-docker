@@ -19,11 +19,16 @@ RUN apt-get update && apt-get install -y \
     libxmu-dev \
     libxi-dev \
     nodejs \
+    curl \
     npm
 
-RUN pwd
 
 RUN cd var && git clone -b KVSHiveModule https://github.com/riken-RCCS/HIVE
+
+RUN npm cache clean
+RUN npm install -g n
+RUN n stable
+RUN npm update -g npm
 
 WORKDIR /var/HIVE/
 RUN git submodule update --init
