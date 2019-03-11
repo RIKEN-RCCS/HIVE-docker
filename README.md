@@ -2,10 +2,8 @@
 
 2019.03.11
 
----
-
 ## 概要
-HIVE(https://github.com/riken-RCCS/HIVE.git) ModuleSystem のDockerイメージです。
+HIVE ModuleSystem (https://github.com/riken-RCCS/HIVE.git) のDockerイメージです。
 
 
 
@@ -57,3 +55,8 @@ http://192.168.99.100:8080/
 以下にアクセスしてください。
 http://localhost:8080/
 
+## 5.動作確認
+
+ブラウザで以下の画面が確認できれば動作しています。
+
+![動作イメージ](scr/hivemodule.jpg)
