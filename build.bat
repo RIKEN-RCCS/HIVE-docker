@@ -1,1 +1,1 @@
-docker build -t hive-server .
+docker build -t hudviz/hive-modulesystem .
