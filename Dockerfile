@@ -22,6 +22,7 @@ RUN apt-get update && apt-get install -y \
     curl \
     npm
 
+RUN echo "clone HIVE..."
 
 RUN cd var && git clone -b KVSHiveModule https://github.com/riken-RCCS/HIVE
 
@@ -34,11 +35,6 @@ WORKDIR /var/HIVE/
 RUN git submodule update --init
 RUN mkdir build
 RUN ./scripts/build_nanomsg.sh
-
-#special
-WORKDIR /var/HIVE/third_party
-RUN rm -rf KVS
-RUN git clone -b develop https://github.com/kioku-systemk/KVS.git
 
 WORKDIR /var/HIVE/build
 RUN cmake ..
