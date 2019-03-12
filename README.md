@@ -28,7 +28,7 @@ HIVE ModuleSystem (https://github.com/riken-RCCS/HIVE.git) のDockerイメージ
 
 下記のインストールスクリプトを実行してください。
 
-    $curl -O XXXXXX/install_docker_ubuntu.sh
+    $curl -O https://raw.githubusercontent.com/RIKEN-RCCS/HIVE-docker/master/install_docker_ubuntu.sh
     $sh install_docker_ubuntu.sh
 
 
