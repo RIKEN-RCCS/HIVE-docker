@@ -15,6 +15,7 @@ RUN apt-get update && apt-get install -y \
     freeglut3-dev \
     libglew-dev \
     libglu1-mesa-dev \
+    libhdf5-serial-dev \
     mesa-common-dev \
     libxmu-dev \
     libxi-dev \
